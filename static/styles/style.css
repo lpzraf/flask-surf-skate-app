@@ -46,3 +46,19 @@ nav li {
 nav li:first-child {
     float: left;
 }
+
+.mapdiv {
+    width:60%;
+    margin: auto;
+}
+
+.mapdiv path {
+    fill: #cc1100;
+    stroke: #dece0c;
+    stroke-width: 2px;
+    transition: fill 0.3s;
+}
+
+.mapdiv :hover {
+    fill:#000;
+}

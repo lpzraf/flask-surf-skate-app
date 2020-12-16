@@ -7,14 +7,18 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 
-# @app.route('/')
-# def home():
-#     return render_template('home.html')
+@app.route('/surf-map')
+def surf_map():
+    return render_template('surf-map.html')
+
+@app.route('/skate-map')
+def skate_map():
+    return render_template('skate-map.html')
 
 
 if __name__ == '__main__':

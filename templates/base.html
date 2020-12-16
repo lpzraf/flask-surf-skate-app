@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surf and Skate App - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 </head>
     <body>
         <nav>
             <ul>
-                <li><a href="{{ url_for('about')}}" class="logo">Home</a></li>
-                <li><a href="{{ url_for('about')}}">About</a></li>
+                <li><a href="{{ url_for('home')}}" class="logo">Home</a></li>
+                <li><a href="{{ url_for('home')}}">About</a></li>
             </ul>
         </nav>
         <br>

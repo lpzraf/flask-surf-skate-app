@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}About{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
     
     <br>
     <h2 style="text-align: center">Spots de Surf y Skate en Puerto Rico</h2>
-    <h3 style="text-align: center">Para que conozcas y ripees los spots mas gufeaos alrededor de la isla!</h3>
+    <h3 style="text-align: center">Para que conozcas y ripees los lugares mas gufeaos alrededor de la isla!</h3>
     <br>
     <br>
     <div class="ui four column centered grid">
-        <div class="column"><img class="ui circular medium image" src="/static/surf.jpg"></div>
-        <div class="column"><img class="ui circular medium image" src="/static/skate-2.jpg"></div> 
+        <div class="column"><a href="{{ url_for('surf_map')}}"><img class="ui circular medium image" src="/static/images/surf.jpg"></a></div>
+        <div class="column"><a href="{{ url_for('skate_map')}}"><img class="ui circular medium image" src="/static/images/skate-2.jpg"></a></div> 
     </div>
 
 
