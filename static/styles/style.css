@@ -6,6 +6,7 @@ body {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(246,234,19,0.9934348739495799) 0%, rgba(0,255,6,1) 100%);
 }
 
+
 /* navbar */
 nav {
     background-color: transparent;
@@ -47,6 +48,8 @@ nav li:first-child {
     float: left;
 }
 
+
+/* maps */
 .mapdiv {
     width:60%;
     margin: auto;
