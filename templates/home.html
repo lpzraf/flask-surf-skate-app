@@ -9,13 +9,42 @@
     <h3 style="text-align: center">Para que conozcas y ripees los lugares mas gufeaos alrededor de la isla!</h3>
     <br>
     <br>
-    <div class="ui four column centered grid">
+    <!-- <div class="ui four column centered grid">
         <div class="column"><a href="{{ url_for('surf_map')}}"><img class="ui circular medium image" src="/static/images/surf.jpg"></a></div>
         <div class="column"><a href="{{ url_for('skate_map')}}"><img class="ui circular medium image" src="/static/images/skate-2.jpg"></a></div> 
+    </div> -->
+
+    <!-- surf image -->
+    <div class="ui four column centered grid">
+        <img class="ui large rounded image" src="/static/images/surf.jpg">
+        <img class="ui large rounded image" src="/static/images/skate-2.jpg">
     </div>
 
+    <!-- skate image -->
+    <div class="ui two column centered grid">
+        <div class="column">
+            <div class="ui section divider"></div>
+        </div>
+    </div>
 
-    <!-- <h3 style="text-align: center">This project was built with Python Flask, Jinja2, SegmentUI for styling and a bit of vanilla JavaScript.</h3> -->
-    <!-- <h4 style="text-align: center"><a href="rafaelopez.com">Rafael Lopez</a> - Analytics and Development.</h4> -->
+    <!-- buttons -->
+    <div class="ui four column centered grid">
+        <div class="ui large buttons">
+            <a href="{{ url_for('surf_map')}}"><button class="ui blue button">Surf</button></a>
+            <div class="or"></div>
+            <a href="{{ url_for('skate_map')}}"><button class="ui teal button">Skate</button></a>
+        </div>
+    </div>
+    
+    <!-- divider -->
+    <div class="ui four column centered grid">
+        <div class="column">
+            <div class="ui section divider"></div>
+        </div>
+    </div>
+
+    <!-- test -->
+
+
 
 {% endblock %}
