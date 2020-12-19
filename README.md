@@ -7,7 +7,7 @@ Web application built primarily for users to learn about surfing and skateboardi
 - Skate spots map
 - Surf spot detail page
 - Skate spot detail page
-- Blog section
+- Blog/News section
 - Comments section
 - Surf and Skate contest calendar
 - User profile creation

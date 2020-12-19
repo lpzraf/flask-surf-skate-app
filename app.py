@@ -14,16 +14,18 @@ def home():
 
 @app.route('/surf-map')
 def surf_map():
-    return render_template('surf-map.html')
+    return render_template('surf_map.html')
 
 
 @app.route('/skate-map')
 def skate_map():
-    return render_template('skate-map.html')
+    return render_template('skate_map.html')
+
 
 @app.route('/surf-map/<string:town>')
 def map_town(town):
-    return render_template('map-town.html', town=town)
+    # town_data = esscribo el query aqui
+    return render_template('map_town.html', town=town)
 
 
 if __name__ == '__main__':
