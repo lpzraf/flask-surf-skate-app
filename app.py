@@ -22,10 +22,15 @@ def skate_map():
     return render_template('skate_map.html')
 
 
-@app.route('/surf-map/<string:town>')
-def map_town(town):
-    # town_data = esscribo el query aqui
-    return render_template('map_town.html', town=town)
+# @app.route('/surf-map/<string:town>')
+# def map_town(town):
+#     # town_data = escribo el query aqui
+#     return render_template('map_town.html', town=town)
+
+@app.route('/<string:map>/<string:town>')
+def map_town(map, town):
+    # town_data = escribo el query aqui
+    return render_template('map_town.html', map=map, town=town)
 
 
 if __name__ == '__main__':

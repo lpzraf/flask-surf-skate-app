@@ -5,29 +5,33 @@
 {% block content %}
     
     <br>
+    {% if map == "surf-map" %}
     <h2 style="text-align: center">Surf Spots en: {{ town.title() }}</h2>
+    {% elif map == "skate-map" %}
+    <h2 style="text-align: center">Skate Spots en: {{ town.title() }}</h2>
+    {% endif %}
     <h3 style="text-align: center">Para que conozcas y ripees los lugares mas gufeaos!</h3>
     <br>
     <br>
-    
+
     <!-- img carousel -->
     <div class="ui two column centered grid">
         <div class="fotorama"
             data-nav="thumbs"
             data-loop="true"
             data-keyboard="true">
-        <a href="#"><img data-caption="Tres Palmas" src="/static/images/surf.jpg"></a>
-        <a href="#"><img src="/static/images/gas-chambers.jpg" data-caption="Gas Chambers"></a>
-        <a href="#"><img src="/static/images/punta-borinquen.jpg" data-caption="Aguadilla"></a>
-        <a href="#"><img src="/static/images/gas-chambers-2.jpg" data-caption="Gas Chambers"></a>
-        <a href="#"><img src="/static/images/tres-palmas.jpg" data-caption="Tres Palmas"></a>
-        <a href="#"><img src="/static/images/tres-palmas-2.jpg" data-caption="Tres Palmas"></a>
-        <a href="#"><img src="/static/images/surf.jpg" data-caption="Tres Palmas"></a>
-        <a href="#"><img src="/static/images/gas-chambers.jpg" data-caption="Gas Chambers"></a>
-        <a href="#"><img src="/static/images/punta-borinquen.jpg" data-caption="Punta Borinquen"></a>
-        <a href="#"><img src="/static/images/gas-chambers-2.jpg" data-caption="Gas Chambers"></a>
-        <a href="#"><img src="/static/images/tres-palmas.jpg" data-caption="Tres Palmas"></a>
-        <a href="#"><img src="/static/images/tres-palmas-2.jpg" data-caption="Tres Palmas"></a>
+            <img data-caption="Tres Palmas" src="/static/images/surf.jpg">
+            <img src="/static/images/gas-chambers.jpg" data-caption="Gas Chambers">
+            <img src="/static/images/punta-borinquen.jpg" data-caption="Aguadilla">
+            <img src="/static/images/gas-chambers-2.jpg" data-caption="Gas Chambers">
+            <img src="/static/images/tres-palmas.jpg" data-caption="Tres Palmas">
+            <img src="/static/images/tres-palmas-2.jpg" data-caption="Tres Palmas">
+            <img src="/static/images/surf.jpg" data-caption="Tres Palmas">
+            <img src="/static/images/gas-chambers.jpg" data-caption="Gas Chambers">
+            <img src="/static/images/punta-borinquen.jpg" data-caption="Punta Borinquen">
+            <img src="/static/images/gas-chambers-2.jpg" data-caption="Gas Chambers">
+            <img src="/static/images/tres-palmas.jpg" data-caption="Tres Palmas">
+            <img src="/static/images/tres-palmas-2.jpg" data-caption="Tres Palmas">
         </div>
     </div>
 
