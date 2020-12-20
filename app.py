@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template
 from dotenv import load_dotenv
 import os
 
@@ -22,16 +22,17 @@ def skate_map():
     return render_template('skate_map.html')
 
 
-# @app.route('/surf-map/<string:town>')
-# def map_town(town):
-#     # town_data = escribo el query aqui
-#     return render_template('map_town.html', town=town)
-
 @app.route('/<string:map>/<string:town>')
 def map_town(map, town):
     # town_data = escribo el query aqui
     return render_template('map_town.html', map=map, town=town)
 
 
+@app.route('/<string:map>/<string:town>/<string:spot>')
+def town_spot(map, town, spot):
+    # town_data = escribo el query aqui
+    return render_template('town_spot.html', map=map, town=town, spot=spot)
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True)    

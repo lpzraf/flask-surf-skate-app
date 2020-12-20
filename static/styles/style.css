@@ -62,10 +62,8 @@ nav li:first-child {
     transition: fill 0.3s;
 }
 
-.mapdiv :hover {
+/* added the .stown class to only have the hover on valid towns
+there may be a better way, removing the class and using :not[class] */
+.mapdiv .stown :hover {
     fill:#000;
 }
-
-
-
-/* test */
