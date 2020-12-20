@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    
+    <br>
+    <h2 style="text-align: center">Community Forum <i class="pr flag"></i></h2>
+    <h3 style="text-align: center">Para que conectes con otros rippers alrededor de la isla!</h3>
+    <br>
+    <br>
+
+    <!-- surf image -->
+    <div class="ui four column centered grid">
+        <!-- <a href="{{ url_for('surf_map')}}"><img class="ui large rounded image" src="/static/images/surf-4.jpg"></a> -->
+        <a href="{{ url_for('skate_map')}}"><img class="ui large rounded image" src="/static/images/soon-1.png"></a>
+    </div>
+
+    <!-- skate image -->
+    <div class="ui two column centered grid">
+        <div class="column">
+            <div class="ui section divider"></div>
+        </div>
+    </div>
+
+    <!-- buttons -->
+    <div class="ui four column centered grid">
+        <div class="ui large buttons">
+            <a href="{{ url_for('surf_map')}}"><button class="ui blue button">Surf</button></a>
+            <div class="or"></div>
+            <a href="{{ url_for('skate_map')}}"><button class="ui teal button">Skate</button></a>
+        </div>
+    </div>
+    
+    <!-- divider -->
+    <div class="ui four column centered grid">
+        <div class="column">
+            <h2 style="text-align: center">Coming soon! <i class="pr flag"></i></h2>
+        </div>
+    </div>
+
+    <!-- test -->
+
+
+
+{% endblock %}

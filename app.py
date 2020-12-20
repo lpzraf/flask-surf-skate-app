@@ -34,5 +34,15 @@ def town_spot(map, town, spot):
     return render_template('town_spot.html', map=map, town=town, spot=spot)
 
 
+@app.route('/community')
+def community():
+    return render_template('community.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)    
