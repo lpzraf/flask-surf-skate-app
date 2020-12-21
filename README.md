@@ -19,7 +19,12 @@ Web application built primarily for users to learn about surfing and skateboardi
 - Image/spot description upload functionality (user genereated content)
 
 ## Tech
-- Python Flask
-- Vanilla JS
-- PostgresSQL
-- Segment.io
+- Backend: Python Flask
+- Interactions: Vanilla JS
+- Database: PostgresSQL
+- Styling: Segment.io
+- Storage: GCP's Cloud Storage
+- Host: GCP's App Engine
+
+## APIs
+- TBD
