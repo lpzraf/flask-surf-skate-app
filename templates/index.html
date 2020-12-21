@@ -5,19 +5,73 @@
 {% block content %}
     
     <br>
-    <h2 style="text-align: center">See all the rippers! <i class="pr flag"></i></h2>
-    <h3 style="text-align: center">Para que conectes con otros rippers alrededor de la isla!</h3>
+    <h2 style="text-align: center">Meet the rippers in PR! <i class="pr flag"></i></h2>
+    <h3 style="text-align: center">Haz click y mira el perfil de otros rippers alrededor de la isla!</h3>
     <br>
     <br>
 
-    <a href="{{url_for('new')}}">Add a new ripper.</a>
-    <!-- surf image -->
     <div class="ui four column centered grid">
-        <!-- <a href="{{ url_for('skate_map')}}"><img class="ui large rounded image" src="/static/images/soon-1.png"></a> -->
-        {% for user in users %}
-        <a href="{{ url_for('show', id=user.id)}}"><p>{{ user.first_name}} {{ user.last_name}}</p></a>
-        {% endfor %}
+        <button class="positive ui button"><a href="{{url_for('new')}}">Add a new ripper!</a></button>
     </div>
+
+    <!-- surf image -->
+    <!-- <div class="ui four column centered grid">
+        <a href="{{ url_for('skate_map')}}"><img class="ui large rounded image" src="/static/images/soon-1.png"></a> -->
+        {% for user in users %}
+        <!-- <a href="{{ url_for('show', id=user.id)}}"><p>{{ user.first_name}} {{ user.last_name}}</p></a> -->
+        {% endfor %}
+    <!-- </div> -->
+
+    <!-- test 1 -->
+    <div class="ui two column centered grid">
+        {% for user in users %}
+        <div class="four column centered row">
+          <!-- card 1 -->
+          <div class="column"><div class="ui card">
+            <div class="image">
+              <img src="/static/images/matthew.png">
+            </div>
+            <div class="content">
+              <a class="header" href="{{ url_for('show', id=user.id)}}">{{ user.first_name }}</a>
+              <div class="meta">
+                <span class="date">Joined in 2013</span>
+              </div>
+              <div class="description">
+                {{ user.first_name }} is a surfer living in Aguadilla.
+              </div>
+            </div>
+            <div class="extra content">
+              <a>
+                <i class="user icon"></i>
+                22 Friends
+              </a>
+            </div>
+          </div></div>
+          <!-- card 2 -->
+          <div class="column"><div class="ui card">
+            <div class="image">
+              <img src="/static/images/matthew.png">
+            </div>
+            <div class="content">
+              <a class="header" href="{{ url_for('show', id=user.id)}}">{{ user.first_name }}</a>
+              <div class="meta">
+                <span class="date">Joined in 2013</span>
+              </div>
+              <div class="description">
+                {{ user.first_name }} is a surfer living in Aguadilla.
+              </div>
+            </div>
+            <div class="extra content">
+              <a>
+                <i class="user icon"></i>
+                22 Friends
+              </a>
+            </div>
+          </div></div>
+          
+        </div>
+        {% endfor %}
+      </div>
 
     <!-- divider -->
     <div class="ui two column centered grid">
@@ -26,23 +80,6 @@
         </div>
     </div>
 
-    <!-- buttons -->
-    <div class="ui four column centered grid">
-        <div class="ui large buttons">
-            <a href="{{ url_for('surf_map')}}"><button class="ui blue button">Surf</button></a>
-            <div class="or"></div>
-            <a href="{{ url_for('skate_map')}}"><button class="ui teal button">Skate</button></a>
-        </div>
-    </div>
-    
-    <!-- divider -->
-    <div class="ui four column centered grid">
-        <div class="column">
-            <h2 style="text-align: center">Coming soon! <i class="pr flag"></i></h2>
-        </div>
-    </div>
-
-    <!-- test -->
 
 
 
