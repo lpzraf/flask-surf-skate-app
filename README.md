@@ -22,7 +22,7 @@ Web application built primarily for users to learn about surfing and skateboardi
 - Backend: Python Flask
 - Interactions: Vanilla JS
 - Database: PostgresSQL
-- Styling: Segment.io
+- Styling: Semantic UI
 - Storage: GCP's Cloud Storage
 - Host: GCP's App Engine
 
