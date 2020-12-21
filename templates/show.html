@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    
+    <br>
+    <h2 style="text-align: center">Profile of {{ user.first_name }}! <i class="pr flag"></i></h2>
+    <h3 style="text-align: center">Para que conectes con otros rippers alrededor de la isla!</h3>
+    <br>
+    <br>
+
+
+
+    <!-- divider -->
+    <div class="ui two column centered grid">
+        <div class="column">
+            <div class="ui section divider"></div>
+        </div>
+    </div>
+
+    <a href="{{url_for('edit', id=user.id)}}">Edit user.</a>
+    <h2>Delete this user.</h2>
+    <form method="POST" action="{{ url_for('show', id=user.id )}}?_method=DELETE">
+        <input type="submit" value="X">
+    </form>
+
+    <!-- buttons -->
+    <div class="ui four column centered grid">
+        <div class="ui large buttons">
+            <a href="{{ url_for('surf_map')}}"><button class="ui blue button">Surf</button></a>
+            <div class="or"></div>
+            <a href="{{ url_for('skate_map')}}"><button class="ui teal button">Skate</button></a>
+        </div>
+    </div>
+    
+    <!-- divider -->
+    <div class="ui four column centered grid">
+        <div class="column">
+            <h2 style="text-align: center">Coming soon! <i class="pr flag"></i></h2>
+        </div>
+    </div>
+
+    <!-- test -->
+
+
+
+{% endblock %}
