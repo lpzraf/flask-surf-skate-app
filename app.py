@@ -15,7 +15,7 @@ modus = Modus(app)
 
 class User(db.Model):
 
-    __tablename__: 'users'
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.Text)
@@ -28,19 +28,55 @@ class User(db.Model):
 
 class Town(db.Model):
 
-    __tablename__: 'towns'
+    __tablename__ = 'towns'
 
     id = db.Column(db.Integer, primary_key=True)
     town_name = db.Column(db.Text)
     town_surf_descr = db.Column(db.Text)
     town_skate_descr = db.Column(db.Text)
     town_descr = db.Column(db.Text)
+    surf_spots = db.relationship('SurfSpot', backref='town')
 
-    def __init__(self, town_name, town_surf_descr, town_skate_descr, town_descr):
+    def __init__(self, town_name, town_surf_descr,
+                 town_skate_descr, town_descr):
         self.town_name = town_name
         self.town_surf_descr = town_surf_descr
         self.town_skate_descr = town_skate_descr
         self.town_descr = town_descr
+
+
+class SurfSpot(db.Model):
+
+    __tablename__ = 'surf_spots'
+
+    id = db.Column(db.Integer, primary_key=True)
+    spot_name = db.Column(db.Text)
+    spot_descr = db.Column(db.Text)
+    spot_type = db.Column(db.Text)
+    ideal_size = db.Column(db.Text)
+    wave_type = db.Column(db.Text)
+    town_id = db.Column(db.Integer, db.ForeignKey('towns.id'))
+    surf_imgs = db.relationship('SurfImage', backref='surf_spot')
+
+    def __init__(self, spot_name, spot_descr,
+                 spot_type, ideal_size, wave_type):
+        self.spot_name = spot_name
+        self.spot_descr = spot_descr
+        self.spot_type = spot_type
+        self.ideal_size = ideal_size
+        self.wave_type = wave_type
+
+
+class SurfImage(db.Model):
+
+    __tablename__ = 'surf_imgs'
+
+    id = db.Column(db.Integer, primary_key=True)
+    img_url = db.Column(db.Text)
+    surf_spot_id = db.Column(db.Integer, db.ForeignKey('surf_spots.id'))
+
+    def __init__(self, img_url):
+        self.img_url = img_url
 
 
 
@@ -112,8 +148,10 @@ def skate_map():
 def map_town(map, town):
     # town_data = escribo el query aqui
     town_obj = Town.query.filter_by(town_name=town).first()
-    spots = ["Gas Chambers", "Wishing", "Wildo", "Surfers", "Survival", "Crashboat", "Pressure Point"]
-    return render_template('map_town.html', map=map, town=town, town_obj=town_obj, spots=spots)
+    spots = ["Gas Chambers", "Wishing", "Wildo", "Surfers", 
+             "Survival", "Crashboat", "Pressure Point"]
+    return render_template('map_town.html', map=map, town=town, 
+                           town_obj=town_obj, spots=spots)
 
 
 @app.route('/<string:map>/<string:town>/<string:spot>')
