@@ -26,6 +26,23 @@ class User(db.Model):
         self.last_name = last_name
 
 
+class Town(db.Model):
+
+    __tablename__: 'towns'
+
+    id = db.Column(db.Integer, primary_key=True)
+    town_name = db.Column(db.Text)
+    town_surf_descr = db.Column(db.Text)
+    town_skate_descr = db.Column(db.Text)
+    town_descr = db.Column(db.Text)
+
+    def __init__(self, town_name, town_surf_descr, town_skate_descr, town_descr):
+        self.town_name = town_name
+        self.town_surf_descr = town_surf_descr
+        self.town_skate_descr = town_skate_descr
+        self.town_descr = town_descr
+
+
 
 # @app.route('/')
 # def home():
@@ -94,7 +111,9 @@ def skate_map():
 @app.route('/<string:map>/<string:town>')
 def map_town(map, town):
     # town_data = escribo el query aqui
-    return render_template('map_town.html', map=map, town=town)
+    town_obj = Town.query.filter_by(town_name=town).first()
+    spots = ["Gas Chambers", "Wishing", "Wildo", "Surfers", "Survival", "Crashboat", "Pressure Point"]
+    return render_template('map_town.html', map=map, town=town, town_obj=town_obj, spots=spots)
 
 
 @app.route('/<string:map>/<string:town>/<string:spot>')
