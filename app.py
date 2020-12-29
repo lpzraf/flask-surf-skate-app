@@ -146,10 +146,10 @@ def skate_map():
 
 @app.route('/<string:map>/<string:town>')
 def map_town(map, town):
-    # town_data = escribo el query aqui
+    spots = SurfSpot.query.join(Town).filter_by(town_name=town).all()
     town_obj = Town.query.filter_by(town_name=town).first()
-    spots = ["Gas Chambers", "Wishing", "Wildo", "Surfers", 
-             "Survival", "Crashboat", "Pressure Point"]
+    # spots = ["Gas Chambers", "Wishing", "Wildo", "Surfers", 
+    #          "Survival", "Crashboat", "Pressure Point"]
     return render_template('map_town.html', map=map, town=town, 
                            town_obj=town_obj, spots=spots)
 

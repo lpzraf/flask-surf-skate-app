@@ -150,7 +150,7 @@
             <img src="/static/images/surf.jpg">
           </div>
           <div class="content">
-            <div class="center aligned header">{{ spot }}</div>
+            <div class="center aligned header">{{ spot.spot_name }}</div>
           </div>
         </a>
       {% endfor %}
@@ -160,6 +160,18 @@
       <div class="column"></div>
     </div>
   </div>
+
+      <!-- divider -->
+      <div class="ui grid centered">
+        <div class="four wide column"><div class="ui section divider"></div></div>
+        <!-- <div class="four wide column"></div>
+        <div class="four wide column"></div>
+        <div class="four wide column"></div> -->
+      </div>
+
+      {% for spot in spts %}
+        <p>{{ spot.spot_name }}</p>
+      {% endfor %}
     
 
 {% endblock %}
