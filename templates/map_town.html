@@ -145,7 +145,7 @@
     <div class="column">
       <div class="ui three cards">
       {% for spot in spots %}
-        <a class="red card" href="{{ url_for('town_spot', map=map, town=town, spot='Bridges' ) }}">
+        <a class="red card" href="{{ url_for('town_spot', map=map, town=town, spot=spot.spot_name ) }}">
           <div class="image">
             <img src="/static/images/surf.jpg">
           </div>

@@ -156,8 +156,8 @@ def map_town(map, town):
 
 @app.route('/<string:map>/<string:town>/<string:spot>')
 def town_spot(map, town, spot):
-    # town_data = escribo el query aqui
-    return render_template('town_spot.html', map=map, town=town, spot=spot)
+    espot = SurfSpot.query.filter(SurfSpot.spot_name == spot).join(Town).filter_by(town_name=town).first()
+    return render_template('town_spot.html', map=map, town=town, spot=espot)
 
 
 @app.route('/community')
