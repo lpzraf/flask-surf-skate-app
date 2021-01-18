@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_modus import Modus
 from dotenv import load_dotenv
-import os
+import os, requests
 from flask_sqlalchemy import SQLAlchemy
 
 load_dotenv()
@@ -35,14 +35,16 @@ class Town(db.Model):
     town_surf_descr = db.Column(db.Text)
     town_skate_descr = db.Column(db.Text)
     town_descr = db.Column(db.Text)
+    open_weather_town_id = db.Column(db.Text)
     surf_spots = db.relationship('SurfSpot', backref='town')
 
     def __init__(self, town_name, town_surf_descr,
-                 town_skate_descr, town_descr):
+                 town_skate_descr, town_descr, open_weather_town_id):
         self.town_name = town_name
         self.town_surf_descr = town_surf_descr
         self.town_skate_descr = town_skate_descr
         self.town_descr = town_descr
+        self.open_weather_town_id = open_weather_town_id
 
 
 class SurfSpot(db.Model):
@@ -78,6 +80,11 @@ class SurfImage(db.Model):
     def __init__(self, img_url):
         self.img_url = img_url
 
+# global func
+def get_weather_results(city_id, api_key):
+    api_url = f"http://api.openweathermap.org/data/2.5/weather?id={city_id}&appid={api_key}&units=imperial"
+    r = requests.get(api_url)
+    return r.json()
 
 
 # @app.route('/')
@@ -148,16 +155,15 @@ def skate_map():
 def map_town(map, town):
     spots = SurfSpot.query.join(Town).filter_by(town_name=town).all()
     town_obj = Town.query.filter_by(town_name=town).first()
-    # spots = ["Gas Chambers", "Wishing", "Wildo", "Surfers", 
-    #          "Survival", "Crashboat", "Pressure Point"]
-    return render_template('map_town.html', map=map, town=town, 
-                           town_obj=town_obj, spots=spots)
+    weather_data = get_weather_results(town_obj.open_weather_town_id, os.getenv('WEATHER_API_KEY'))
+    return render_template('map_town.html', map=map, town=town,
+                           town_obj=town_obj, spots=spots, weather=weather_data)
 
 
 @app.route('/<string:map>/<string:town>/<string:spot>')
 def town_spot(map, town, spot):
-    espot = SurfSpot.query.filter(SurfSpot.spot_name == spot).join(Town).filter_by(town_name=town).first()
-    return render_template('town_spot.html', map=map, town=town, spot=espot)
+    spot = SurfSpot.query.filter(SurfSpot.spot_name == spot).join(Town).filter_by(town_name=town).first()
+    return render_template('town_spot.html', map=map, town=town, spot=spot)
 
 
 @app.route('/community')

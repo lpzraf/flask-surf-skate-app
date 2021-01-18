@@ -11,6 +11,7 @@
     <h2 style="text-align: center">Skate Spots en: {{ town.title() }}</h2>
     {% endif %}
     <h3 style="text-align: center">Para que conozcas y ripees los lugares mas gufeaos!</h3>
+    <h4 style="text-align: center">Temperatura actual: {{ weather['main'].temp }}°F</h4>
     <br>
     <br>
 
@@ -50,88 +51,6 @@
     <h5 style="text-align: center">{{ town_obj.town_descr}}</h5>
     <br>
 
-    <!-- spots row 1 -->
-    <div class="ui grid centered">
-        <div class="ui relaxed horizontal list">
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Wilderness' ) }}">Wilderness</a>
-              </div>
-            </div>
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Gas Chambers' ) }}">Gas Chambers</a>
-              </div>
-            </div>
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Surfer\'s Beach' ) }}">Surfer's Beach</a>
-              </div>
-            </div>
-          </div>
-    </div>
-    
-    <!-- spacer -->
-    <div class="ui grid centered">
-        <div class="four wide column"><div class="ui section divider"></div></div>
-    </div>
-    
-    <!-- spots row 2 -->
-    <div class="ui grid centered">
-        <div class="ui relaxed horizontal list">
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Pressure Point' ) }}">Pressure Point</a>
-              </div>
-            </div>
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Wishing Wells' ) }}">Wishing Wells</a>
-              </div>
-            </div>
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Chrash Boat' ) }}">Chrash Boat</a>
-              </div>
-            </div>
-          </div> 
-    </div>
-    
-    <!-- spacer -->
-    <div class="ui grid centered">
-        <div class="four wide column"><div class="ui section divider"></div></div>
-    </div>
-
-    <!-- spots row 3 -->
-    <div class="ui grid centered">
-        <div class="ui relaxed horizontal list">
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Table Top' ) }}">Table Top</a>
-              </div>
-            </div>
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Table Top' ) }}">Table Top</a>
-              </div>
-            </div>
-            <div class="item">
-              <img class="ui avatar image" src="/static/images/surf.jpg">
-              <div class="content">
-                <a class="header" href="{{ url_for('town_spot', map=map, town=town, spot='Bridges' ) }}">Bridges</a>
-              </div>
-            </div>
-          </div> 
-    </div>
-
     <!-- divider -->
     <div class="ui grid centered">
         <div class="four wide column"><div class="ui section divider"></div></div>
@@ -140,7 +59,7 @@
         <div class="four wide column"></div> -->
       </div>
 
-  <!-- test -->
+  <!-- spots -->
   <div class="ui stackable two column centered grid">
     <div class="column">
       <div class="ui three cards">
@@ -167,11 +86,6 @@
         <!-- <div class="four wide column"></div>
         <div class="four wide column"></div>
         <div class="four wide column"></div> -->
-      </div>
-
-      {% for spot in spts %}
-        <p>{{ spot.spot_name }}</p>
-      {% endfor %}
-    
+      </div>    
 
 {% endblock %}
