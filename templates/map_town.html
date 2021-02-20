@@ -11,7 +11,7 @@
     <h2 style="text-align: center">Skate Spots en: {{ town.title() }}</h2>
     {% endif %}
     <h3 style="text-align: center">Para que conozcas y ripees los lugares mas gufeaos!</h3>
-    <h4 style="text-align: center">Temperatura actual: {{ weather['main'].temp }}°F</h4>
+    <h4 style="text-align: center">Temperatura actual: {{ weather['main'].temp|round|int }}°F</h4>
     <br>
     <br>
 

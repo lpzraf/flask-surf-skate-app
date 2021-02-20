@@ -80,6 +80,7 @@ class SurfImage(db.Model):
     def __init__(self, img_url):
         self.img_url = img_url
 
+
 # global func
 def get_weather_results(city_id, api_key):
     api_url = f"http://api.openweathermap.org/data/2.5/weather?id={city_id}&appid={api_key}&units=imperial"
@@ -155,9 +156,10 @@ def skate_map():
 def map_town(map, town):
     spots = SurfSpot.query.join(Town).filter_by(town_name=town).all()
     town_obj = Town.query.filter_by(town_name=town).first()
-    weather_data = get_weather_results(town_obj.open_weather_town_id, os.getenv('WEATHER_API_KEY'))
+    weather = get_weather_results(town_obj.open_weather_town_id, 
+                                  os.getenv('WEATHER_API_KEY'))
     return render_template('map_town.html', map=map, town=town,
-                           town_obj=town_obj, spots=spots, weather=weather_data)
+                           town_obj=town_obj, spots=spots, weather=weather)
 
 
 @app.route('/<string:map>/<string:town>/<string:spot>')
@@ -177,4 +179,10 @@ def about():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)    
+    app.run(debug=True)
+
+# new
+from application import app
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=81, debug=True)

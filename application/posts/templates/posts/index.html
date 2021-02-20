@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Homepage{% endblock %}
+
+{% block content %}
+
+<div class="ui center aligned icon header">
+    <i class="pencil alternate icon"></i>
+    {% if g.user.id == user.id %}
+        <h1>Hi {{g.user.username}}! These are your current blog posts.</h1>
+    {% else %}
+        <h1>Hi {{g.user.username}}! These are {{user.username}}'s blog posts.</h1>
+    {% endif %}
+
+<p>{{ date }} - <span id="clock"></span></p>
+<a href="{{ url_for('posts.new', user_id=user.id) }}">Add Post</a>
+</div>
+  
+<div class="ui divider"></div>
+
+<div class="ui four column grid centered">
+
+    {% for post in user.posts %} 
+
+        <div class="column">
+            <div class="ui centered cards">
+                <div class="card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="/static/matthew.png">
+                        <div class="header">
+                            <a href="{{url_for('posts.show', user_id=user.id, id=post.id)}}">{{post.title}}</a>
+                        </div>
+                        <div class="meta">
+                            {{post.date.strftime('%Y-%m-%d') }}
+                        </div>
+                        <div class="description">
+                            {{post.post_body}}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic blue button"><a href="{{ url_for('posts.edit', user_id=user.id, id=post.id) }}">Edit</a></div>
+                            <div class="ui basic red button"><form action="{{url_for('posts.show', user_id=user.id, id=post.id)}}?_method=DELETE" method="POST">
+                                {{delete_form.hidden_tag()}}
+                                <input type="submit" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %} 
+</div>
+
+{% endblock %}
