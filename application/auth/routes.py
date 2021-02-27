@@ -4,7 +4,7 @@ from flask import (render_template, request,
 from application.users.forms import LoginForm
 from decorators import ensure_authenticated, prevent_login_signup
 from application.models import User
-from app import app
+from application import app
 
 
 auth_bp = Blueprint(

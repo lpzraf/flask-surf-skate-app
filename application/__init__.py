@@ -23,8 +23,10 @@ modus = Modus(app)  # for overwriting http methods
 from application.users.routes import users_bp
 from application.posts.routes import posts_bp
 from application.auth.routes import auth_bp
+from application.maps.routes import maps_bp
 
 
 app.register_blueprint(users_bp, url_prefix='/users')
 app.register_blueprint(posts_bp, url_prefix='/users/<int:user_id>/posts')
+app.register_blueprint(maps_bp)
 app.register_blueprint(auth_bp)

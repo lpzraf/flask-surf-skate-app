@@ -1,7 +1,7 @@
 from flask import (render_template, request,
                    redirect, url_for, session,
                    flash, Blueprint, g)
-from application.users.forms import UserForm, DeleteForm, EmptyForm
+from application.users.forms import UserForm, DeleteForm
 from application.models import User
 from application import db, bcrypt
 import datetime
@@ -71,7 +71,7 @@ def edit(user_id):
 @users_bp.route('/<int:user_id>', methods=['GET', 'PATCH', 'DELETE'])
 @ensure_authenticated
 def show(user_id):
-    empty_form = EmptyForm()
+    # empty_form = EmptyForm()
     found_user = User.query.get(user_id)
     delete_form = DeleteForm()
     if request.method == b'PATCH':
@@ -94,5 +94,4 @@ def show(user_id):
         return redirect(url_for('auth.login'))
     return render_template('users/show.html',
                            user=found_user,
-                           empty_form=empty_form,
                            delete_form=delete_form)

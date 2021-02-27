@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surf and Skate App - {% block title %}{% endblock %}</title>
+    <!-- jQuery 1.8 or later, 33 KB -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <!-- Semantic ui -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('users.index')}}" class="logo">Logo</a></li>
+                {% if g.user.username %}
+                    <li><a href="{{ url_for('auth.logout')}}">Sign out</a></li>
+                    <li><a href="{{url_for('users.show', user_id=g.user.id)}}">Profile</a></li>
+                    <li><a href="{{ url_for('posts.index', user_id=g.user.id)}}">Make Public</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('auth.login')}}">Login</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('users.index')}}">Community</a></li>
+                <li><a href="{{ url_for('auth.about')}}">About</a></li>
+                <li><a href="{{ url_for('maps.community')}}">Maps</a></li>
+            </ul>
+        </nav>
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, msg in messages %}
+
+                <div class="ui {{ category }} message compact">
+                    <i class="close icon"></i>
+                    <div class="header centered">
+                        {{ msg }}
+                    </div>
+                </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
