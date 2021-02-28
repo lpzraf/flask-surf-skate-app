@@ -5,15 +5,15 @@
 {% block content %}
     
     <br>
-    <h2 style="text-align: center">Surf y Skate en PR <i class="pr flag"></i></h2>
-    <h3 style="text-align: center">Tu pagina web para que conozcas del surf y skate en Puerto Rico!</h3>
+    <h2 style="text-align: center">Surf y Skate en PR</h2>
+    <h3 style="text-align: center">Tu pagina web para que conozcas del surf y skate en Puerto Rico.</h3>
     <br>
     <br>
 
     <!-- surf image -->
     <div class="ui four column centered grid">
-        <!-- <a href="{{ url_for('surf_map')}}"><img class="ui large rounded image" src="/static/images/surf-4.jpg"></a> -->
-        <a href="{{ url_for('skate_map')}}"><img class="ui large rounded image" src="/static/images/soon-1.png"></a>
+        <!-- <a href="{{ url_for('maps.surf_map')}}"><img class="ui large rounded image" src="/static/images/surf-4.jpg"></a> -->
+        <a href="{{ url_for('maps.skate_map')}}"><img class="ui large rounded image" src="/static/images/soon-1.png"></a>
     </div>
 
     <!-- skate image -->
@@ -22,25 +22,12 @@
             <div class="ui section divider"></div>
         </div>
     </div>
-
-    <!-- buttons -->
-    <div class="ui four column centered grid">
-        <div class="ui large buttons">
-            <a href="{{ url_for('surf_map')}}"><button class="ui blue button">Surf</button></a>
-            <div class="or"></div>
-            <a href="{{ url_for('skate_map')}}"><button class="ui teal button">Skate</button></a>
-        </div>
-    </div>
     
     <!-- divider -->
     <div class="ui four column centered grid">
         <div class="column">
-            <h2 style="text-align: center">Coming soon! <i class="pr flag"></i></h2>
+            <h2 style="text-align: center"><i class="pr flag"></i></h2>
         </div>
     </div>
-
-    <!-- test -->
-
-
 
 {% endblock %}

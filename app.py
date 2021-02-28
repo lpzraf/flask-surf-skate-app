@@ -168,9 +168,9 @@
 #     return render_template('town_spot.html', map=map, town=town, spot=spot)
 
 
-# @app.route('/community')
-# def community():
-#     return render_template('community.html')
+# @app.route('/maps')
+# def maps():
+#     return render_template('maps.html')
 
 
 
