@@ -20,6 +20,7 @@ maps_bp = Blueprint(
 # def root():
 #     return redirect(url_for('index'))
 
+
 @maps_bp.route('/surf-map')
 def surf_map():
     return render_template('surf_map.html')

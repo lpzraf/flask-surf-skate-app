@@ -73,7 +73,7 @@ def edit(user_id):
 @users_bp.route('/<int:user_id>', methods=['GET', 'PATCH', 'DELETE'])
 @ensure_authenticated
 def show(user_id):
-    # empty_form = EmptyForm()
+    empty_form = EmptyForm()
     found_user = User.query.get(user_id)
     delete_form = DeleteForm()
     if request.method == b'PATCH':
@@ -96,6 +96,7 @@ def show(user_id):
         return redirect(url_for('auth.login'))
     return render_template('users/show.html',
                            user=found_user,
+                           empty_form=empty_form,
                            delete_form=delete_form)
 
 # follow and unfollow routes

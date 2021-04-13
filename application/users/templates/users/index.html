@@ -6,7 +6,7 @@
 
 <div class="ui center aligned icon header">
     <i class="users icon"></i>
-    <h1>Hi {{ g.user.username }}! These are your Friends.</h1>
+    <h1>Hi {{ g.user.username }}! Meet our friends in the community.</h1>
 
 <p>{{ date }} - <span id="clock"></span></p>
 </div>
@@ -21,7 +21,7 @@
             <div class="ui centered cards">
                 <div class="card">
                     <div class="content">
-                        <img class="right floated mini ui image" src="/static/matthew.png">
+                        <img class="right floated mini ui image" src="/static/images/matthew.png">
                         <div class="header">
                             <a href="{{url_for('users.show', user_id=user.id)}}">{{user.username}}</a>
                         </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="extra content">
                         <div class="ui two buttons">
-                            <div class="ui basic green button"><a href="{{ url_for('posts.index', user_id=user.id) }}">Blog Pposts</a></div>
+                            <div class="ui basic green button"><a href="{{ url_for('posts.index', user_id=user.id) }}">Blog Posts</a></div>
                             <div class="ui basic blue button"><a href="{{url_for('users.show', user_id=user.id)}}">Profile</a></div>
                         </div>
                     </div>

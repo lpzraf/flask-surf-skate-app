@@ -21,7 +21,7 @@
                 {% if g.user.username %}
                     <li><a href="{{ url_for('auth.logout')}}">Sign out</a></li>
                     <li><a href="{{url_for('users.show', user_id=g.user.id)}}">Profile</a></li>
-                    <li><a href="{{ url_for('posts.index', user_id=g.user.id)}}">Make Public</a></li>
+                    <li><a href="{{ url_for('posts.index', user_id=g.user.id)}}">Blog</a></li>
                 {% else %}
                     <li><a href="{{ url_for('auth.login')}}">Login</a></li>
                 {% endif %}
